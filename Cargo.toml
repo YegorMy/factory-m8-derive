@@ -1,0 +1,24 @@
+[package]
+name = "factory-m8-derive"
+version = "0.1.0"
+edition = "2021"
+description = "Derive macros for test data factories with automatic FK resolution"
+license = "MIT"
+repository = "https://github.com/AcmeCorp/factory-m8"
+keywords = ["testing", "factory", "database", "fixtures", "derive"]
+categories = ["development-tools::testing", "development-tools::procedural-macro-helpers"]
+readme = "README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2", features = ["full", "extra-traits"] }
+quote = "1"
+proc-macro2 = "1"
+
+[dev-dependencies]
+factory-m8 = { path = "../factory-m8" }
+sqlx = { version = "0.8.6", features = ["postgres", "runtime-tokio", "macros"] }
+tokio = { version = "1", features = ["rt", "macros"] }
+async-trait = "0.1"
